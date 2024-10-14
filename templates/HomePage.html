@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Forum Home Page</title>
+    <link rel="stylesheet" href="/static/css/HomePage.css">
+</head>
+<body>
+    <header>
+        <h1>Web Forum</h1>
+        <p>Join the conversation!</p>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <div>
+                <a href="/home">Home</a>
+                <a href="/account">Account</a>
+            </div>
+            <div>
+                <a href="/CreatePost">Create Post</a>
+            </div>
+        </nav>
+
+        <div class="filters">
+            <h3>Filters:</h3>
+            <select>
+                <option>All Categories</option>
+                <option>Technology</option>
+                <option>Sports</option>
+                <option>Entertainment</option>
+            </select>
+            {{if .Found}}
+                {{template "CreatePost"}}
+            {{end}}
+        </div>
+        <div class="posts">
+            
+        </div>
+    </div>
+</body>
+</html>
+
+
+{{define "CreatePost"}}
+    <div class="create-post style-1">
+        <h3>Create a New Post (Style 1)</h3>
+        <input type="text" placeholder="Title">
+        <textarea placeholder="Write your post here..."></textarea>
+        <select>
+            <option>Select Category</option>
+            <option>Technology</option>
+            <option>Sports</option>
+            <option>Entertainment</option>
+        </select>
+        <button>Post</button>
+    </div>
+{{end}}
